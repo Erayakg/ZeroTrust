@@ -11,19 +11,17 @@ public class PasswordManager {
 
     private final Map<String, String> passwordStore = new ConcurrentHashMap<>();
 
-    // Yeni şifre oluştur
     public String generatePasswordForSession(String sessionId) {
-        String password = UUID.randomUUID().toString(); // Rastgele şifre oluştur
+        String password = UUID.randomUUID().toString();
         passwordStore.put(sessionId, password);
+        System.out.printf("Generated password %s for session %s%n", password, sessionId);
         return password;
     }
 
-    // Şifre doğrula
     public boolean validatePassword(String sessionId, String password) {
-        return password.equals(passwordStore.get(sessionId));
+          return password.equals(passwordStore.get(sessionId));
     }
 
-    // Oturum sonlandığında şifreyi temizle
     public void clearPassword(String sessionId) {
         passwordStore.remove(sessionId);
     }

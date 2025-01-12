@@ -24,7 +24,6 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         String sessionId = request.getSession().getId();
         String generatedPassword = passwordManager.generatePasswordForSession(sessionId);
 
-        // Şifreyi yanıt olarak dönebilir veya front-end'e gönderebilirsiniz.
         response.getWriter().write("Generated Password for Session: " + generatedPassword);
     }
 }

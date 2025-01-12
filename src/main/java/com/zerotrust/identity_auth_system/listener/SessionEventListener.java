@@ -17,6 +17,6 @@ public class SessionEventListener implements HttpSessionListener {
     @Override
     public void sessionDestroyed(HttpSessionEvent event) {
         String sessionId = event.getSession().getId();
-        passwordManager.clearPassword(sessionId); // Şifreyi temizle
+        passwordManager.clearPassword(sessionId);
     }
 }
