@@ -24,6 +24,8 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         String sessionId = request.getSession().getId();
         String generatedPassword = passwordManager.generatePasswordForSession(sessionId);
 
+        // Şifreyi oturumda sakla
         response.getWriter().write("Generated Password for Session: " + generatedPassword);
     }
+
 }
